@@ -5,6 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    public $quantity;
+
     public function hasLowStock()
     {
         if ($this->outOfStock()) {
