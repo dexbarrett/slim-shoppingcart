@@ -43,4 +43,21 @@ class CartController
 
         return $response->withRedirect($router->pathFor('cart.index'));
     }
+
+    public function update($slug, Request $request, Response $response, Router $router)
+    {
+        $product = $this->product->where('slug', $slug)->first();
+
+        if (! $product) {
+            return $response->withRedirect($router->pathFor('home'));
+        }
+
+        try {
+            $this->basket->update($product, $request->getParam('quantity'));
+        } catch (QuantityExceededException $e) {
+
+        }
+
+        return $response->withRedirect($router->pathFor('cart.index'));
+    }
 }
