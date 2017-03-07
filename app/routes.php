@@ -14,3 +14,9 @@ $app->get('/', ['Cart\Controllers\HomeController', 'index'])
 
     $app->post('/cart/update/{slug}', ['Cart\Controllers\CartController', 'update'])
         ->setName('cart.update');
+
+    $app->get('/order', ['Cart\Controllers\OrderController', 'index'])
+        ->setName('order.index');
+
+    $app->post('/order', ['Cart\Controllers\OrderController', 'create'])
+        ->setName('order.create');
