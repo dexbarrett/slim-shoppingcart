@@ -4,6 +4,7 @@ my code for Codecourse's [Build a Shopping Cart](https://www.codecourse.com/less
 
 Tools used:
 *   [Slim microframework](https://www.slimframework.com/)
+*   [PHP-DI Slim Bridge](https://github.com/PHP-DI/Slim-Bridge) to integrate [PHP-DI](http://php-di.org/) enhanced dependency injection container with Slim
 *   [Braintree payments](https://www.braintreepayments.com/)
 *   [Laravel Eloquent](https://github.com/illuminate/database) for database interaction
 *   [PHP dotenv](https://github.com/vlucas/phpdotenv) to store sensitive data in environment variables
