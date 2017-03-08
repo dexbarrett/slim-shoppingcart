@@ -30,6 +30,11 @@ $capsule->addConnection([
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
+Braintree_Configuration::environment(getenv('BRAINTREE_ENVIRONMENT'));
+Braintree_Configuration::merchantId(getenv('BRAINTREE_MERCHANTID'));
+Braintree_Configuration::publicKey(getenv('BRAINTREE_PUBLICKEY'));
+Braintree_Configuration::privateKey(getenv('BRAINTREE_PRIVATEKEY'));
+
 require __DIR__ . '/../app/routes.php';
 
 $app->add(new ValidationErrorsMiddleware($container->get(Twig::class)));

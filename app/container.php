@@ -1,18 +1,28 @@
 <?php
 
 use Cart\Basket\Basket;
+use Cart\Models\Address;
+use Cart\Models\Customer;
+use Cart\Models\Order;
+use Cart\Models\Payment;
 use Cart\Models\Product;
 use Cart\Support\Storage\Contracts\StorageInterface;
 use Cart\Support\Storage\SessionStorage;
 use Cart\Validation\Contracts\ValidatorInterface;
 use Cart\Validation\Validator;
 use Interop\Container\ContainerInterface;
+use RandomLib\Factory;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 use function DI\get;
 
 return [
     'router' => get(Slim\Router::class),
+
+    Factory::class => function (ContainerInterface $c)
+    {
+        return new RandomLib\Factory;
+    },
 
     ValidatorInterface::class => function (ContainerInterface $c)
     {
@@ -40,6 +50,22 @@ return [
 
     Product::class => function (ContainerInterface $c) {
         return new Product;
+    },
+
+    Order::class => function (ContainerInterface $c) {
+        return new Order;
+    },
+
+    Customer::class => function (ContainerInterface $c) {
+        return new Customer;
+    },
+
+    Address::class => function (ContainerInterface $c) {
+        return new Address;
+    },
+
+    Payment::class => function (ContainerInterface $c) {
+        return new Payment;
     },
 
     Basket::class => function (ContainerInterface $c) {

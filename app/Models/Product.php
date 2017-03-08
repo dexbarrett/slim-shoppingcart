@@ -30,4 +30,10 @@ class Product extends Model
     {
         return $this->stock >= $quantity;
     }
+
+    public function order()
+    {
+        return $this->belongsToMany(Order::class, 'orders_products')
+            ->withPivot('quantity');
+    }
 }
